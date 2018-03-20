@@ -1,7 +1,3 @@
-#1. Get all property Ids for a certain account passed as script argument
-#2. For each retrieved property get list of users and their access leve
-#3. Create a table with the information as shown here account | property | user | edit | collaborate | read&analyse | manage_users
-
 import csv
 from apiclient.discovery import build
 from oauth2client.service_account import ServiceAccountCredentials
@@ -30,6 +26,14 @@ def get_service(api_name, api_version, scopes, key_file_location):
 
 
 def get_user_data_list(service):
+    """Get all user emails address and permission for all Google Analytics account and Properties.
+
+    Args:
+        service: The service that is connected to the specified API.
+
+    Returns:
+        A list of lists [[account], [WebProperty], [EmailAddress], [UserPermissions]] .
+    """
 
     list_account = ['Account']
     list_property = ['WebProperty']
@@ -80,7 +84,14 @@ def get_user_data_list(service):
 
 
 def print_table_to_csv(data_list, filename):
-    # Print data nicely in csv format.
+    """Print input list of lists in a csv format in the same folder as this scripts.
+
+    Args:
+        data_list: A list of lists populated with data.
+
+    Returns:
+        None
+    """
     with open(filename, "w", newline="") as file:
         writer = csv.writer(file, delimiter=",")
         for iter in range(len(data_list[0])):
