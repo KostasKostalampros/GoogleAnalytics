@@ -88,6 +88,7 @@ def print_table_to_csv(data_list, filename):
 
     Args:
         data_list: A list of lists populated with data.
+        filename: A file name in string format used for the output file.
 
     Returns:
         None
