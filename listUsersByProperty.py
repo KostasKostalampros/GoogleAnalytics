@@ -102,7 +102,7 @@ def print_table_to_csv(data_list, filename):
 def main():
     # Define the auth scopes to request.
     scope = ['https://www.googleapis.com/auth/analytics.manage.users', 'https://www.googleapis.com/auth/analytics.readonly']
-    key_file_location = 'P:\\service_acccount_keys\\my_project-c1c9c02d2c87.json'
+    key_file_location = 'KEY_JSON_FILEPATH'
 
     output_csv_filename = "GoogleAnalyticsUserDataList.csv"
 
